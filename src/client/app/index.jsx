@@ -6,8 +6,7 @@ class App extends React.Component {
   render () {
     return (
     	<div>
-    	<InputBox/>
-    	<p> Travel Album</p>
+
     	</div>
     );
   }
