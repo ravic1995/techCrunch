@@ -167,6 +167,9 @@ var markers = [
         vvv =val;
         console.log(vvv);
         var rett = L.marker([val.lat, val.lng]).bindPopup("<img width=210px height=210px src=\"\" onload=\"this.onload=null; this.src=getLink();\">").openPopup();
+        rett.on('mouseover', function(e){
+          rett.openPopup();
+        });
         rett.addTo(map)
       });
 
