@@ -96,13 +96,15 @@
 
       });
 
+      loc = [
+        { city: 'san francisco', state: 'ca'},
+        { city: 'los angeles', state: 'ca' }
+        ];
+
       dir.route({
         maxRoutes:3,
         timeOverage: 25,
-        locations: [
-        { city: 'san francisco', state: 'ca'},
-        { city: 'los angeles', state: 'ca' }
-        ]
+        locations: loc,
       });
 
       map.addLayer(routeLayer);
@@ -231,17 +233,15 @@
           // var map, dir;
           dir = MQ.routing.directions();
 
+          loc.splice(1,0,{ latLng : {lat: val.lat , lng: val.lng }});
+
           dir.optimizedRoute({
-            locations: [
-            { city: 'san francisco', state: 'ca'},
-            { latLng : {lat: val.lat , lng: val.lng }},
-            { city: 'los angeles', state: 'ca' }
-            ]
+            locations: loc,
           });
 
           routeLayer = MQ.routing.routeLayer({
             directions: dir,
-            fitBounds: true
+            fitBounds: true,
           });
 
           map.addLayer(routeLayer);
@@ -266,7 +266,7 @@
     </div>
   </footer>
   <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <!-- <script src="js/jquery.js"></script> -->
 
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
