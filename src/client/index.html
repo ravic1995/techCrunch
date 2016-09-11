@@ -1,45 +1,88 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Travel Album</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-    <style>
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-    </div>
-    <div id="map"></div>
-    <script src="public/bundle.js" type="text/javascript"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Travel Album</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+  <style>
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+  </div>
+  <div id="map" alrRibbonSelected="_altRibbonselected"></div>
+  <script src="public/bundle.js" type="text/javascript"></script>
 
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
 
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
 
 
-      var map, dir;
-      map = L.map('map', {
-        layers: MQ.mapLayer(),
-        center: [ 36.9644407, -122.0163889 ],
-        zoom: 7
-      });
+    var map, dir;
+    map = L.map('map', {
+      layers: MQ.mapLayer(),
+      center: [ 36.9644407, -122.0163889 ],
+      zoom: 7,
+      attributionControl: true,
+    });
 
-      dir = MQ.routing.directions();
+    dir = MQ.routing.directions();
 
-      routeLayer = MQ.routing.routeLayer({
-        directions: dir,
+    routeLayer = MQ.routing.routeLayer({
+      directions: dir,
+      fitBounds: true,
+      ribbonOptions: {
+        draggable: true,
+        ribbonDisplay: { color: '#5892FA', opacity: 0.8 },
+      },
+      altRibbonOptions: {
+        show: true,
+        selectTime: 100,
+        ribbonDisplay: { color: '#F78181', opacity: 0.5 },
+        hoverDisplay: { color: 'red', opacity: 0.5 },
+      }
+
+    });
+
+    var loc = [
+    { city: 'san francisco', state: 'ca'},
+    { city: 'los angeles', state: 'ca' }
+    ];
+
+    dir.route({
+      maxRoutes:3,
+      timeOverage: 25,
+      locations: loc,
+    });
+
+    map.addLayer(routeLayer);
+    let vvv = "";
+
+
+    map.addLayer(MQ.routing.routeLayer({
+      directions: dir,
+      fitBounds: true
+    }));
+
+    function addroute(){
+      console.log("adding route");
+      loc.push({ latLng: { lat: 36.5994045, lng: -121.9474559 }});
+      map.removeLayer();
+      map.addLayer(MQ.routing.routeLayer({
+        directions: dir.route({
+          locations: loc,
+        }),
         fitBounds: true,
+<<<<<<< HEAD
         ribbonOptions: {
           draggable: false,
           ribbonDisplay: { color: '#4892FA', opacity: 1.0},
@@ -164,8 +207,102 @@ var markers = [
 
 
   $.each( markers, function(key,val ) {
+=======
+      }))
+    }
+
+    function getLink(){
+      console.log(vvv.link);
+      return vvv.link;
+    }
+
+    var markers = [
+    {"name": "Spanish Bay",
+    "lat": 36.5994045,
+    "lng": -121.9474559,
+    "link": "./pic/scenic1.jpg"},
+
+    {"name": "The Ghost Tree",
+    "lat": 36.5607933,
+    "lng": -121.9603772,
+    "link":"./pic/scenic2.jpg"},
+
+    {"name":"The Lone Cypress",
+    "lat": 36.5691274,
+    "lng": -121.9694009,
+    "link": "./pic/scenic3.jpg"},
+
+    {"name": "Carmel Beach",
+    "lat": 36.5502388,
+    "lng": -121.9291215,
+    "link":"./pic/scenic4.jpg"},
+
+    {"name": "Point Joe",
+    "lat": 36.6102371,
+    "lng": -121.9563452,
+    "link": "./pic/scenic5.jpg"},
+
+    {"name":"Windy Hill Open Space Preserve",
+    "lat": 37.362565,
+    "lng": -122.234191,
+    "link": "./pic/scenic6.jpg"},
+
+    {"name": "Santa Cruz Beach Boardwalk",
+    "lat": 36.9644407,
+    "lng": -122.0163889,
+    "link": "./pic/scenic8.jpg"},
+
+    {"name": "Golden Gate Bridge",
+    "lat": 37.8199286,
+    "lng": -122.4782551,
+    "link": "./pic/scenic9.jpg"},
+
+    {"name": "Chalk Hill Road",
+    "lat": 38.5682227,
+    "lng": -122.7710031,
+    "link": "./pic/scenic11.jpg"},
+
+    {"name": "Walton Lighthouse, Santa Cruz",
+    "lat": 38.5682227,
+    "lng": -122.7710031,
+    "link": "../pic/scenic12.jpg"},
+
+    {"name": "Santa Cruz Beach Boardwalk",
+    "lat": 36.9644407,
+    "lng": -122.0163889,
+    "link":  "./pic/scenic13.jpg"},
+
+    {"name": "Walton Lighthouse, Santa Cruz",
+    "lat": 36.9607029,
+    "lng": -122.0021868,
+    "link": "./pic/scenic14.jpg"},
+
+    {"name": "Fisherman's Wharf, SF",
+    "lat": 37.8081103,
+    "lng": -122.416631,
+    "link": "../pic/scenic15.jpg"},
+
+    {"name": "Hollywood Bvld, LA",
+    "lat": 34.1015875,
+    "lng": -118.3336409,
+    "link": "./pic/scenic16.jpg"},
+
+    {"name":  "Big Sur, Pacific Coast Highway",
+    "lat": 36.7544386,
+    "lng": -121.7652261,
+    "link": "./pic/scenic17.jpg"},
+
+    {"name": "Random road along Santa Clara",
+    "lat": 37.3708905,
+    "lng": -121.9675526,
+    "link":"./pic/scenic10.jpg"},
+
+    ];
+
+    $.each( markers, function(key,val ) {
+>>>>>>> Merge conflict
         // console.log(val);
-        vvv =val;
+        vvv = val;
         console.log(vvv);
         let leet2 = "<img width=210px height=210px src=\""+val.link+"\"> <div><div align=\"left\" display=\"inline\" width=\"50%\" >summer</div><div align=\"right\" display=\"inline\" width=\"50%\">12pm</div></div>";
 
@@ -237,12 +374,9 @@ map.addLayer(MQ.routing.routeLayer({
         });
 
         rett.addTo(map)
+        rett.on('dblclick', addroute(val.lat, val.lng));
       });
 
-
-
-
-
-</script>
+    </script>
   </body>
-</html>
+  </html>
