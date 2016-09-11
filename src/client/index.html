@@ -3,19 +3,55 @@
     <meta charset="utf-8">
     <title>Travel Album</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+<script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
   </head>
   <body>
     <div id="app">
     </div>
-    <div id="map" style="width:1000px; height:400px;">
-    </div>
+    <div id="map"></div>
     <script src="public/bundle.js" type="text/javascript"></script>
-    <script src="http://www.mapquestapi.com/sdk/js/v7.2.s/mqa.toolkit.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
+
     <script type="text/javascript">
+
+    // window.onload = function() {
+    // L.map('map', {
+    //  layers: MQ.mapLayer(),
+    //  center: [ 40.731701, -73.993411 ],
+    //   zoom: 12
+    // });
+    // };
+    var map,
+  dir;
+
+map = L.map('map', {
+  layers: MQ.mapLayer(),
+  center: [ 42.346353, -71.415958 ],
+  zoom: 9
+});
+
+dir = MQ.routing.directions();
+
+dir.route({
+  locations: [
+    'worcester ma',
+    { latLng: { lat: 42.346797, lng: -71.547966 }},
+    { city: 'boston', state: 'ma' }
+  ]
+});
+
+map.addLayer(MQ.routing.routeLayer({
+  directions: dir,
+  fitBounds: true
+}));
   // An example of using the MQA.EventUtil to hook into the window load event and execute the defined
   // function passed in as the last parameter. You could alternatively create a plain function here and
   // have it executed whenever you like (e.g. <body onload="yourfunction">).
-  MQA.EventUtil.observe(window, 'load', function() {
+  /*MQA.EventUtil.observe(window, 'load', function() {
     // create an object for options
 
     var options = {
@@ -30,8 +66,34 @@
     window.map = new MQA.TileMap(options);
 
   })
-  var b = $.get("http://www.mapquestapi.com/geocoding/v1/address?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU&location=1555%20Blake%20St,%20Denver,%20CO%2080202&thumbMaps=false");
-  console.log(b);
+
+  MQA.withModule('new-route', function() {
+
+  // uses the MQA.TileMap.addRoute function to pass in an array
+  // of locations as part of the request parameter
+  map.addRoute({
+    request: {
+      locations: [
+        { city: 'San Fransisco', state: 'CA' },
+        { city: 'Los Angeles', state: 'CA' }
+      ]
+    }
+  });
+  });
+
+  var b = $.getJSON("http://www.mapquestapi.com/geocoding/v1/address?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU&location=1555%20Blake%20St,%20Denver,%20CO%2080202&thumbMaps=false", function(data){
+    console.log(data.results);
+  });
+  // let bb = b.responseText;
+
+
+  const direction = $.getJSON("http://www.mapquestapi.com/directions/v2/alternateroutes?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU&from=San Fransisco,CA&to=Los Angeles,CA&maxRoutes=2&timeOverage=100", function(data){
+    console.log(data.results);
+  });
+  console.log(direction);
+*/
+
+
 </script>
   </body>
 </html>
