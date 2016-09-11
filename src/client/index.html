@@ -26,11 +26,12 @@
 
     <script type="text/javascript">
 
+
       var map, dir;
       map = L.map('map', {
         layers: MQ.mapLayer(),
-        center: [ 42.346353, -71.415958 ],
-        zoom: 12
+        center: [ 36.9644407, -122.0163889 ],
+        zoom: 7
       });
 
       dir = MQ.routing.directions();
@@ -62,7 +63,117 @@
       });
 
       map.addLayer(routeLayer);
+let vvv = "";
 
-    </script>
+
+map.addLayer(MQ.routing.routeLayer({
+  directions: dir,
+  fitBounds: true
+}));
+
+function getLink(){
+  console.log(vvv.link);
+  return vvv.link;
+}
+
+var markers = [
+{"name": "Spanish Bay",
+"lat": 36.5994045,
+"lng": -121.9474559,
+"link": "./pic/scenic1.jpg"},
+
+{"name": "The Ghost Tree",
+"lat": 36.5607933,
+"lng": -121.9603772,
+"link":"./pic/scenic2.jpg"},
+
+{"name":"The Lone Cypress",
+"lat": 36.5691274,
+"lng": -121.9694009,
+"link": "./pic/scenic3.jpg"
+},
+
+{"name": "Carmel Beach",
+"lat": 36.5502388,
+"lng": -121.9291215,
+"link":"./pic/scenic4.jpg"},
+
+{"name": "Point Joe",
+"lat": 36.6102371,
+"lng": -121.9563452,
+"link": "./pic/scenic5.jpg"},
+
+{"name":"Windy Hill Open Space Preserve",
+"lat": 37.362565,
+"lng": -122.234191,
+"link": "./pic/scenic6.jpg"},
+
+{"name": "Santa Cruz Beach Boardwalk",
+"lat": 36.9644407,
+"lng": -122.0163889,
+"link": "./pic/scenic8.jpg"},
+
+{"name": "Golden Gate Bridge",
+"lat": 37.8199286,
+"lng": -122.4782551,
+"link": "./pic/scenic9.jpg"},
+
+{"name": "Chalk Hill Road",
+"lat": 38.5682227,
+"lng": -122.7710031,
+"link": "./pic/scenic11.jpg"},
+
+{"name": "Walton Lighthouse, Santa Cruz",
+"lat": 38.5682227,
+"lng": -122.7710031,
+"link": "../pic/scenic12.jpg"},
+
+{"name": "Santa Cruz Beach Boardwalk",
+"lat": 36.9644407,
+"lng": -122.0163889,
+"link":  "./pic/scenic13.jpg"},
+
+{"name": "Walton Lighthouse, Santa Cruz",
+"lat": 36.9607029,
+"lng": -122.0021868,
+"link": "./pic/scenic14.jpg"},
+
+{"name": "Fisherman's Wharf, SF",
+"lat": 37.8081103,
+"lng": -122.416631,
+"link": "../pic/scenic15.jpg"},
+
+{"name": "Hollywood Bvld, LA",
+"lat": 34.1015875,
+"lng": -118.3336409,
+"link": "./pic/scenic16.jpg"},
+
+{"name":  "Big Sur, Pacific Coast Highway",
+"lat": 36.7544386,
+"lng": -121.7652261,
+"link": "./pic/scenic17.jpg"},
+
+{"name": "Random road along Santa Clara",
+"lat": 37.3708905,
+"lng": -121.9675526,
+"link":"./pic/scenic10.jpg"},
+
+];
+
+
+
+  $.each( markers, function(key,val ) {
+        // console.log(val);
+        vvv =val;
+        console.log(vvv);
+        var rett = L.marker([val.lat, val.lng]).bindPopup("<img width=210px height=210px src=\"\" onload=\"this.onload=null; this.src=getLink();\">").openPopup();
+        rett.addTo(map)
+      });
+
+
+
+
+
+</script>
   </body>
 </html>

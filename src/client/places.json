@@ -1,83 +1,83 @@
 [
-{"name": Spanish Bay
-"lat": 36.5994045
-"lng": -121.9474559
-"link": ../pic/scenic1},
+{"name": "Spanish Bay",
+"lat": 36.5994045,
+"lng": -121.9474559,
+"link": "./pic/scenic1.jpg"},
 
-{"name": The Ghost Tree
-"lat": 36.5607933
-"lng": -121.9603772
-"link":../pic/scenic2},
+{"name": "The Ghost Tree",
+"lat": 36.5607933,
+"lng": -121.9603772,
+"link":"./pic/scenic2.jpg"},
 
-{"name":The Lone Cypress
-"lat": 36.5691274
-"lng": -121.9694009
-"link": ../pic/scenic3
+{"name":"The Lone Cypress",
+"lat": 36.5691274,
+"lng": -121.9694009,
+"link": "./pic/scenic3.jpg"
 },
 
-{"name": Carmel Beach
-"lat": 36.5502388
-"lng": -121.9291215
-"link":../pic/scenic4},
+{"name": "Carmel Beach",
+"lat": 36.5502388,
+"lng": -121.9291215,
+"link":"./pic/scenic4.jpg"},
 
-{"name": Point Joe
-"lat": 36.6102371
-"lng": -121.9563452
-"link": ../pic/scenic5},
+{"name": "Point Joe",
+"lat": 36.6102371,
+"lng": -121.9563452,
+"link": "./pic/scenic5.jpg"},
 
-{"name":Windy Hill Open Space Preserve
-"lat": 37.362565
-"lng": -122.234191
-"link": ../pic/scenic6},
+{"name":"Windy Hill Open Space Preserve",
+"lat": 37.362565,
+"lng": -122.234191,
+"link": "./pic/scenic6.jpg"},
 
-{"name": Santa Cruz Beach Boardwalk
-"lat": 36.9644407
-"lng": -122.0163889
-"link": ../pic/scenic8},
+{"name": "Santa Cruz Beach Boardwalk",
+"lat": 36.9644407,
+"lng": -122.0163889,
+"link": "./pic/scenic8.jpg"},
 
-{"name": Golden Gate Bridge
-"lat": 37.8199286
-"lng": -122.4782551
-"link": ../pic/scenic9},
+{"name": "Golden Gate Bridge",
+"lat": 37.8199286,
+"lng": -122.4782551,
+"link": "./pic/scenic9.jpg"},
 
-{"name": Chalk Hill Road
-"lat": 38.5682227
-"lng": -122.7710031
-"link": ../pic/scenic11},
+{"name": "Chalk Hill Road",
+"lat": 38.5682227,
+"lng": -122.7710031,
+"link": "./pic/scenic11.jpg"},
 
-{"name": Walton Lighthouse, Santa Cruz
-"lat": 38.5682227
-"lng": -122.7710031
-"link": ../pic/scenic12},
+{"name": "Walton Lighthouse, Santa Cruz",
+"lat": 38.5682227,
+"lng": -122.7710031,
+"link": "../pic/scenic12.jpg"},
 
-{"name": Santa Cruz Beach Boardwalk
-"lat": 36.9644407
-"lng": -122.0163889
-"link":  ../pic/scenic13},
+{"name": "Santa Cruz Beach Boardwalk",
+"lat": 36.9644407,
+"lng": -122.0163889,
+"link":  "./pic/scenic13.jpg"},
 
-{"name": Walton Lighthouse, Santa Cruz
-"lat": 36.9607029
-"lng": -122.0021868
-"link": ../pic/scenic14},
+{"name": "Walton Lighthouse, Santa Cruz",
+"lat": 36.9607029,
+"lng": -122.0021868,
+"link": "./pic/scenic14.jpg"},
 
-{"name": Fisherman's Wharf, SF
-"lat": 37.8081103
-"lng": -122.416631
-"link": ../pic/scenic15},
+{"name": "Fisherman's Wharf, SF",
+"lat": 37.8081103,
+"lng": -122.416631,
+"link": "../pic/scenic15.jpg"},
 
-{"name": Hollywood Bvld, LA
-"lat": 34.1015875
-"lng": -118.3336409
-"link": ../pic/scenic16},
+{"name": "Hollywood Bvld, LA",
+"lat": 34.1015875,
+"lng": -118.3336409,
+"link": "./pic/scenic16.jpg"},
 
-{"name":  Big Sur, Pacific Coast Highway
-"lat": 36.7544386
-"lng": -121.7652261
-"link": ../pic/scenic17},
+{"name":  "Big Sur, Pacific Coast Highway",
+"lat": 36.7544386,
+"lng": -121.7652261,
+"link": "./pic/scenic17.jpg"},
 
-{"name": Random road along Santa Clara
-"lat": 37.3708905
-"lng": -121.9675526
-"link":../pic/scenic10 ../pic/scenic10},
+{"name": "Random road along Santa Clara",
+"lat": 37.3708905,
+"lng": -121.9675526,
+"link":"./pic/scenic10.jpg"},
 
-]
+];
