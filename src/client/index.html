@@ -65,14 +65,17 @@
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=UShjaMayAC4UkuBJ5nu5rqFuraxzEOQU"></script>
 
     <script type="text/javascript">
-
-
       var map, dir;
       map = L.map('map', {
         layers: MQ.mapLayer(),
         center: [ 36.9644407, -122.0163889 ],
-        zoom: 7
+        zoom: 6
       });
+
+      var currentLoc = window.navigator.geolocation;
+      console.log(currentLoc);
+    $("button").click(function(){
+
 
       dir = MQ.routing.directions();
 
@@ -207,7 +210,7 @@ var markers = [
 
         var leet = "<div class=\"w3-card-12\" style=\"width:25%\"<img src=\""+val.link+"\" alt=\""+ val.name+"\" style=\"width:100%\">     <div class=\"w3-container w3-center\"><p>Name: "+ val.name+"</p><p>Season: Summer</p>       <p>Time: 12pm </p></div></div>";
 
-                // var rett = L.marker([val.lat, val.lng]).bindPopup("<img width=210px height=210px src=\"\" onload=\"this.onload=null; this.src=getLink();\">").openPopup();
+
         var rett = L.marker([val.lat, val.lng]).bindPopup(leet2).openPopup();
 
 
@@ -220,61 +223,26 @@ var markers = [
           // var map, dir;
           dir = MQ.routing.directions();
 
-dir.optimizedRoute({
-  locations: [
-    { city: 'san francisco', state: 'ca'},
-    { latLng : {lat: val.lat , lng: val.lng }},
-    { city: 'los angeles', state: 'ca' }
-  ]
-});
+      dir.optimizedRoute({
+        locations: [
+          { city: 'san francisco', state: 'ca'},
+          { latLng : {lat: val.lat , lng: val.lng }},
+          { city: 'los angeles', state: 'ca' }
+        ]
+      });
 
 
-map.addLayer(MQ.routing.routeLayer({
-  directions: dir,
-  fitBounds: true
-}));
+      map.addLayer(MQ.routing.routeLayer({
+        directions: dir,
+        fitBounds: true
+      }));
           console.log(map);
-      //     map.remove();
-      //     map = L.map('map', {
-      //   layers: MQ.mapLayer(),
-      //   center: [ 36.9644407, -122.0163889 ],
-      //   zoom: 7
-      // });
-
-      // dir = MQ.routing.directions();
-
-      // routeLayer = MQ.routing.routeLayer({
-      //   directions: dir,
-      //   fitBounds: true,
-      //   ribbonOptions: {
-      //     draggable: false,
-      //     ribbonDisplay: { color: '#4892FA', opacity: 1.0},
-      //     width: 3,
-      //   },
-      //   altRibbonOptions: {
-      //     show: true,
-      //     ribbonDisplay: { color: '#F78181', opacity: 0.5},
-      //     hoverDisplay: { color: 'red', opacity: 0.5},
-      //     widths: 3,
-      //   }
-
-      // });
-
-      // dir.optimizedRoute({
-      //   maxRoutes:3,
-      //   timeOverage: 25,
-      //   locations: [
-      //   { city: 'san francisco', state: 'ca'},
-      //   { latLng: { lat: val.lat, lng: val.lng } },
-      //   { city: 'los angeles', state: 'ca' }
-      //   ]
-      // });
-
-      // map.addLayer(routeLayer);
         });
 
         rett.addTo(map)
       });
+
+    })
 
 
 
