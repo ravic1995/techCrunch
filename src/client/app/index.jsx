@@ -6,10 +6,7 @@ class App extends React.Component {
   render () {
     return (
     	<div>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     	</div>
     );
   }

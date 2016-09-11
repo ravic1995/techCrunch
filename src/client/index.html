@@ -120,84 +120,117 @@ var markers = [
 {"name": "Spanish Bay",
 "lat": 36.5994045,
 "lng": -121.9474559,
-"link": "./pic/scenic1.jpg"},
+"link": "./pic/scenic1.jpg",
+"season" : "spring",
+"time": "4pm"
+},
 
 {"name": "The Ghost Tree",
 "lat": 36.5607933,
 "lng": -121.9603772,
-"link":"./pic/scenic2.jpg"},
-
+"link":"./pic/scenic2.jpg",
+"season" : "summer",
+"time": "4pm"
+},
 {"name":"The Lone Cypress",
 "lat": 36.5691274,
 "lng": -121.9694009,
-"link": "./pic/scenic3.jpg"
+"link": "./pic/scenic3.jpg",
+"season" : "spring",
+"time": "4pm"
 },
 
 {"name": "Carmel Beach",
 "lat": 36.5502388,
 "lng": -121.9291215,
-"link":"./pic/scenic4.jpg"},
-
+"link":"./pic/scenic4.jpg",
+"season" : "fall",
+"time": "4pm"
+},
 {"name": "Point Joe",
 "lat": 36.6102371,
 "lng": -121.9563452,
-"link": "./pic/scenic5.jpg"},
-
+"link": "./pic/scenic5.jpg",
+"season" : "spring",
+"time": "4pm"
+},
 {"name":"Windy Hill Open Space Preserve",
 "lat": 37.362565,
 "lng": -122.234191,
-"link": "./pic/scenic6.jpg"},
-
+"link": "./pic/scenic6.jpg",
+"season" : "winter",
+"time": "4pm"
+},
 {"name": "Santa Cruz Beach Boardwalk",
 "lat": 36.9644407,
 "lng": -122.0163889,
-"link": "./pic/scenic8.jpg"},
-
+"link": "./pic/scenic8.jpg",
+"season" : "fall",
+"time": "4pm"
+},
 {"name": "Golden Gate Bridge",
 "lat": 37.8199286,
 "lng": -122.4782551,
-"link": "./pic/scenic9.jpg"},
-
+"link": "./pic/scenic9.jpg",
+"season" : "summer",
+"time": "4pm"
+},
 {"name": "Chalk Hill Road",
 "lat": 38.5682227,
 "lng": -122.7710031,
-"link": "./pic/scenic11.jpg"},
-
+"link": "./pic/scenic11.jpg",
+"season" : "winter",
+"time": "4pm"
+},
 {"name": "Walton Lighthouse, Santa Cruz",
 "lat": 38.5682227,
 "lng": -122.7710031,
-"link": "./pic/scenic12.jpg"},
-
+"link": "./pic/scenic12.jpg",
+"season" : "summer",
+"time": "4pm"
+},
 {"name": "Santa Cruz Beach Boardwalk",
 "lat": 36.9644407,
 "lng": -122.0163889,
-"link":  "./pic/scenic13.jpg"},
-
+"link":  "./pic/scenic13.jpg",
+"season" : "spring",
+"time": "4pm"
+},
 {"name": "Walton Lighthouse, Santa Cruz",
 "lat": 36.9607029,
 "lng": -122.0021868,
-"link": "./pic/scenic14.jpg"},
-
+"link": "./pic/scenic14.jpg",
+"season" : "spring",
+"time": "4pm"
+},
 {"name": "Fisherman's Wharf, SF",
 "lat": 37.8081103,
 "lng": -122.416631,
-"link": "./pic/scenic15.jpg"},
-
+"link": "./pic/scenic15.jpg",
+"season" : "fall",
+"time": "4pm"
+},
 {"name": "Hollywood Bvld, LA",
 "lat": 34.1015875,
 "lng": -118.3336409,
-"link": "./pic/scenic16.jpg"},
-
+"link": "./pic/scenic16.jpg",
+"season" : "spring",
+"time": "4pm"
+},
 {"name":  "Big Sur, Pacific Coast Highway",
 "lat": 36.7544386,
 "lng": -121.7652261,
-"link": "./pic/scenic17.jpg"},
-
+"link": "./pic/scenic17.jpg",
+"season" : "winter",
+"time": "4pm"
+},
 {"name": "Random road along Santa Clara",
 "lat": 37.3708905,
 "lng": -121.9675526,
-"link":"./pic/scenic10.jpg"},
-
+"link":"./pic/scenic10.jpg",
+"season" : "summer",
+"time": "4pm"
+}
 ];
 
 
@@ -206,7 +239,7 @@ var markers = [
         // console.log(val);
         vvv =val;
         console.log(vvv);
-        var leet2 = "<img width=210px height=210px src=\""+val.link+"\"> <div><div align=\"left\" display=\"inline\" width=\"50%\" >summer</div><div align=\"right\" display=\"inline\" width=\"50%\">12pm</div></div>";
+        var leet2 = "<img width=210px height=210px src=\""+val.link+"\"> <div><span class=\"label label-primary\">"+val.season+"</span><span class=\"label label-info\">"+ val.time+ "</span></div>";
 
         var leet = "<div class=\"w3-card-12\" style=\"width:25%\"<img src=\""+val.link+"\" alt=\""+ val.name+"\" style=\"width:100%\">     <div class=\"w3-container w3-center\"><p>Name: "+ val.name+"</p><p>Season: Summer</p>       <p>Time: 12pm </p></div></div>";
 
